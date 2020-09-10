@@ -1,7 +1,7 @@
 const request = require("request");
-
+require("dotenv").config();
 const forecast = (lat, lon, callback) => {
-  const forecastURL = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=2a386ded194a5fd85c4ec3df84fa0934&units=metric`;
+  const forecastURL = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.FORECAST_API_KEY}&units=metric`;
   request({ url: forecastURL, json: true }, (error, { body }) => {
     if (error) {
       callback("unable to connect to location service :(", undefined);

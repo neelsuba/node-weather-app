@@ -1,5 +1,5 @@
 const path = require("path");
-
+require("dotenv").config();
 const express = require("express");
 const hbs = require("hbs");
 const { query } = require("express");
