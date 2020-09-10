@@ -3,8 +3,9 @@ require("dotenv").config();
 const express = require("express");
 const hbs = require("hbs");
 const { query } = require("express");
-const app = express();
 
+const app = express();
+const port = process.env.PORT || 3000;
 const forecast = require("./utils/forecast");
 const geocode = require("./utils/geocode");
 //define paths
@@ -99,6 +100,6 @@ app.get("*", (req, res) => {
 });
 // app.com
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log("server has started!");
 });
